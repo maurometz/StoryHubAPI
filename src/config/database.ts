@@ -13,7 +13,6 @@ export const AppDataSource = new DataSource({
   logging: true,
   entities: [Story, Comment],
   migrations: [
-    'src/migrations/1706207489762-DropTables.ts',
     'src/migrations/1706207489763-CreateStoriesTable.ts',
     'src/migrations/1706207489764-CreateCommentsTable.ts'
   ],

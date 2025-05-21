@@ -3,7 +3,6 @@ import { storyService } from '../services/story.service';
 import { CreateStoryDTO, UpdateStoryDTO } from '../types/story.types';
 
 export async function storyRoutes(fastify: FastifyInstance) {
-  // Get all stories
   fastify.get('/', {
     schema: {
       tags: ['stories'],
@@ -29,7 +28,6 @@ export async function storyRoutes(fastify: FastifyInstance) {
     return storyService.getAllStories();
   });
 
-  // Get a single story
   fastify.get('/:id', {
     schema: {
       tags: ['stories'],
@@ -73,7 +71,6 @@ export async function storyRoutes(fastify: FastifyInstance) {
     return story;
   });
 
-  // Create a new story
   fastify.post('/', {
     schema: {
       tags: ['stories'],
@@ -106,7 +103,6 @@ export async function storyRoutes(fastify: FastifyInstance) {
     return storyService.createStory(storyData);
   });
 
-  // Update a story
   fastify.put('/:id', {
     schema: {
       tags: ['stories'],
@@ -159,7 +155,6 @@ export async function storyRoutes(fastify: FastifyInstance) {
     return updatedStory;
   });
 
-  // Delete a story
   fastify.delete('/:id', {
     schema: {
       tags: ['stories'],

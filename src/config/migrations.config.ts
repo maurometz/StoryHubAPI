@@ -8,7 +8,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'storyhub',
-  synchronize: false, // Disable synchronize in favor of migrations
+  synchronize: false,
   logging: true,
   entities: [Story],
   migrations: ['src/migrations/*.ts'],
