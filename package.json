@@ -11,6 +11,7 @@
   },
   "name": "storyhub",
   "version": "1.0.0",
+  "type": "module",
   "main": "dist/server.js",
   "repository": "https://github.com/maurometz/StoryHubAPI.git",
   "author": "Mauro Metz <maurometzdasilva@ienh.com.br>",
