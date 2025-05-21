@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
-import { Story } from '../entities/Story';
-import { Comment } from '../entities/Comment';
+import { Story } from '../entities/Story.js';
+import { Comment } from '../entities/Comment.js';
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
@@ -12,9 +12,6 @@ export const AppDataSource = new DataSource({
   synchronize: false,
   logging: true,
   entities: [Story, Comment],
-  migrations: [
-    'src/migrations/1706207489763-CreateStoriesTable.ts',
-    'src/migrations/1706207489764-CreateCommentsTable.ts'
-  ],
+  migrations: ['src/migrations/*.ts'],
   migrationsTableName: 'migrations',
 }); 

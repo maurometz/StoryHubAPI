@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
-import { Story } from '../entities/Story';
-import { Comment } from '../entities/Comment';
+import { Story } from '../entities/Story.js';
+import { Comment } from '../entities/Comment.js';
 
 export const AppDataSource = new DataSource({
   type: 'mysql',

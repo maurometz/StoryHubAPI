@@ -2,8 +2,7 @@ import fastify from 'fastify';
 import cors from '@fastify/cors';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
-
-import { storyRoutes } from './routes/story.routes';
+import storyRoutes from './routes/story.routes.js';
 
 const app = fastify({
   logger: true,
