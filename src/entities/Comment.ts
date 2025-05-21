@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
-import type { Story } from './Story';
+import { Story } from './Story';
 
 @Entity('comments')
 export class Comment {
@@ -15,7 +15,7 @@ export class Comment {
   @Column({ type: 'varchar', length: 36 })
   storyId!: string;
 
-  @ManyToOne('Story', 'comments')
+  @ManyToOne(() => Story, story => story.comments)
   @JoinColumn({ name: 'storyId' })
   story!: Story;
 
