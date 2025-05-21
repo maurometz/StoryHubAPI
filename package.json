@@ -27,12 +27,12 @@
   },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "tsc",
-    "start": "yarn node dist/server.js",
+    "build": "tsc && cp -r src/migrations dist/",
+    "start": "yarn migration:run && node dist/server.js",
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:create": "yarn typeorm migration:create",
     "migration:generate": "yarn typeorm migration:generate -d src/config/migrations.config.ts",
-    "migration:run": "yarn typeorm migration:run -d src/config/migrations.config.ts",
-    "migration:revert": "yarn typeorm migration:revert -d src/config/migrations.config.ts"
+    "migration:run": "yarn typeorm migration:run -d dist/config/migrations.config.js",
+    "migration:revert": "yarn typeorm migration:revert -d dist/config/migrations.config.js"
   }
 }
