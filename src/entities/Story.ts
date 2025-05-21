@@ -15,7 +15,7 @@ export class Story {
   @Column()
   author!: string;
 
-  @OneToMany(() => Comment, (comment: Comment) => comment.story)
+  @OneToMany('Comment', 'story')
   comments!: Comment[];
 
   @CreateDateColumn()

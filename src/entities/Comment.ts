@@ -15,7 +15,7 @@ export class Comment {
   @Column({ type: 'varchar', length: 36 })
   storyId!: string;
 
-  @ManyToOne(() => Story, (story: Story) => story.comments)
+  @ManyToOne('Story', 'comments')
   @JoinColumn({ name: 'storyId' })
   story!: Story;
 
