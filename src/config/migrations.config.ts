@@ -1,5 +1,6 @@
 import { DataSource } from 'typeorm';
 import { Story } from '../entities/Story';
+import { Comment } from '../entities/Comment';
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
@@ -10,7 +11,7 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_NAME || 'storyhub',
   synchronize: false,
   logging: true,
-  entities: [Story],
+  entities: [Story, Comment],
   migrations: ['src/migrations/*.ts'],
   migrationsTableName: 'migrations',
 }); 
