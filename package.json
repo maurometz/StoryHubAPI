@@ -20,19 +20,17 @@
     "@types/node": "^22.15.3",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
+    "cross-env": "^7.0.3",
     "eslint": "^9.25.1",
+    "nodemon": "^3.1.10",
     "prettier": "^3.5.3",
     "ts-node-dev": "^2.0.0",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "tsc && cp -r src/migrations dist/",
-    "start": "yarn migration:run && node dist/server.js",
-    "typeorm": "typeorm-ts-node-commonjs",
-    "migration:create": "yarn typeorm migration:create",
-    "migration:generate": "yarn typeorm migration:generate -d src/config/migrations.config.ts",
-    "migration:run": "yarn typeorm migration:run -d dist/config/migrations.config.js",
-    "migration:revert": "yarn typeorm migration:revert -d dist/config/migrations.config.js"
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node dist/server.js"
   }
 }

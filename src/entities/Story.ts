@@ -6,16 +6,16 @@ export class Story {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 255 })
   title!: string;
 
-  @Column('text')
+  @Column({ type: 'text' })
   content!: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 255 })
   author!: string;
 
-  @OneToMany('Comment', 'story')
+  @OneToMany(() => Comment, comment => comment.story)
   comments!: Comment[];
 
   @CreateDateColumn()

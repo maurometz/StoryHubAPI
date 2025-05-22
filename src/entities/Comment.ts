@@ -6,16 +6,16 @@ export class Comment {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  @Column('text')
+  @Column({ type: 'text' })
   content!: string;
 
-  @Column()
+  @Column({ type: 'varchar', length: 255 })
   author!: string;
 
   @Column({ type: 'varchar', length: 36 })
   storyId!: string;
 
-  @ManyToOne('Story', 'comments')
+  @ManyToOne(() => Story, story => story.comments)
   @JoinColumn({ name: 'storyId' })
   story!: Story;
 
