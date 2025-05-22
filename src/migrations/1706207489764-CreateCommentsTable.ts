@@ -20,6 +20,11 @@ export class CreateCommentsTable1706207489764 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`DROP TABLE \`comments\``);
+        await queryRunner.query(`
+            ALTER TABLE \`comments\` DROP FOREIGN KEY \`FK_comments_stories\`
+        `);
+        await queryRunner.query(`
+            DROP TABLE \`comments\`
+        `);
     }
-} 
+}
