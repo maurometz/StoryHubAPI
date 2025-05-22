@@ -1,8 +1,8 @@
-import { DataSource } from 'typeorm';
+import { DataSource, DataSourceOptions } from 'typeorm';
 import { Story } from '../entities/Story.js';
 import { Comment } from '../entities/Comment.js';
 
-const dbConfig = {
+const dbConfig: DataSourceOptions = {
   type: 'mysql',
   host: process.env.DB_HOST || 'localhost',
   port: parseInt(process.env.DB_PORT || '3306'),
