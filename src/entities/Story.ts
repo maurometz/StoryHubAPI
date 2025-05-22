@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
-import { Comment } from './Comment.js';
+import type { Comment } from './Comment.js';
 
 @Entity('stories')
 export class Story {
@@ -15,7 +15,7 @@ export class Story {
   @Column({ type: 'varchar', length: 255 })
   author!: string;
 
-  @OneToMany(() => Comment, comment => comment.story)
+  @OneToMany('Comment', 'story')
   comments!: Comment[];
 
   @CreateDateColumn()
