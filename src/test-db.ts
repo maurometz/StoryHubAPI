@@ -14,11 +14,9 @@ async function testConnection() {
 
     console.log('Successfully connected to MySQL');
     
-    // Test if database exists
     const [rows] = await connection.query('SHOW DATABASES');
     console.log('Available databases:', rows);
     
-    // Test if we can create the database if it doesn't exist
     await connection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME || 'storyhub'}`);
     console.log(`Database ${process.env.DB_NAME || 'storyhub'} is ready`);
     

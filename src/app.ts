@@ -8,12 +8,10 @@ const app = fastify({
   logger: true,
 });
 
-// Register plugins
 app.register(cors, {
   origin: true,
 });
 
-// Register Swagger
 app.register(swagger, {
   swagger: {
     info: {
@@ -77,10 +75,8 @@ app.register(swaggerUi, {
   staticCSP: true
 });
 
-// Register routes
 app.register(storyRoutes, { prefix: '/api/stories' });
 
-// Health check route
 app.get('/health', {
   schema: {
     tags: ['health'],

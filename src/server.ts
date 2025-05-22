@@ -14,12 +14,10 @@ const start = async () => {
       DB_PASSWORD: process.env.DB_PASSWORD ? '****' : undefined
     });
 
-    // Initialize database connection
     console.log('Initializing database connection...');
     await AppDataSource.initialize();
     console.log('Database connection established');
 
-    // Start the server
     console.log('Starting HTTP server...');
     await app.listen({ port: 3000, host: '0.0.0.0' });
     console.log('Server is running on http://localhost:3000');
